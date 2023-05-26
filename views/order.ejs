@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Order</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="order__item">
+
+            <h2 class="order-item__title"><a href=<%=link %>>
+                    <%= title %>
+                </a></h2>
+        </div>
+        <form id="formElem" class="form">
+            <h3>Surname</h3>
+            <input type="text" class="form__input" id="surname" required>
+            <h3>Name</h3>
+            <input type="text" class="form__input" id="name" required>
+            <h3>Phone</h3>
+            <input type="tel" class="form__input" id="phone" required>
+            <h3>Email</h3>
+            <input type="email" class="form__input" id="email" required>
+            <h3>City</h3>
+            <input type="text" class="form__input" id="city" required>
+            <h3>Type of payment:</h3>
+            <input type="radio" name="pay" value="Cash">
+            <input type="radio" name="pay" value="Card">
+            <button type="submit" id="btn">Send</button>
+        </form>
+    </div>
+    <script src="order-script.js"></script>
+</body>
+
+</html>
