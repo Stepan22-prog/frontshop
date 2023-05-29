@@ -1,7 +1,7 @@
 const catalog = document.getElementById('catalog');
 async function fetchData() {
     try {
-        const response = await fetch("http://localhost:1337/api/laptops?fields=title&fields=price&populate[Image][fields]=url");
+        const response = await fetch("https://testbackendforshop-stepanigcom.b4a.run/api/laptops?fields=title&fields=price&populate[Image][fields]=url");
         if (response.ok) {
             const json = await response.json();
             console.log(json.data);
@@ -19,7 +19,7 @@ function insertItems(json) {
     for (let i = 0; i < json.data.length; i++) {
         catalog.insertAdjacentHTML("beforeEnd",
             `<div class="catalog__item">
-        <a href=""><img class="catalog-item__img" src="${'http://localhost:1337' + json.data[i].attributes.Image.data[0].attributes.url}" alt="Laptop"></a>
+        <a href=""><img class="catalog-item__img" src="${'https://testbackendforshop-stepanigcom.b4a.run' + json.data[i].attributes.Image.data[0].attributes.url}" alt="Laptop"></a>
         <a href="">
             <h2 class="catalog-item__title">${json.data[i].attributes.Title}</h2>
         </a>

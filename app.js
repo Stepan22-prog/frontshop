@@ -17,8 +17,8 @@ app.use("/item/:id", function (request, response, next) {
             response.cookie('laptop_name', result.attributes.Title, { httpOnly: true })
             response.render("item", {
                 title: result.attributes.Title,
-                main_img: "http://127.0.0.1:1337" + result.attributes.Image.data[1].attributes.url,
-                imgs: result.attributes.Image.data.map(item => { return item.attributes.url }),
+                main_img: "https://testbackendforshop-stepanigcom.b4a.run" + result.attributes.Image.data[1].attributes.url,
+                imgs: result.attributes.Image.data.map(item => { return "https://testbackendforshop-stepanigcom.b4a.run" + item.attributes.url }),
                 price: result.attributes.Price,
                 description: result.attributes.Description
             });
@@ -47,7 +47,7 @@ app.listen(process.env.PORT || 3000);
 
 async function fetchDataForItem(id) {
     try {
-        const response = await fetch(`http://127.0.0.1:1337/api/laptops/${id}?fields=title&fields=price&fields=description&populate[Image][fields]=url`);
+        const response = await fetch(`https://testbackendforshop-stepanigcom.b4a.run/api/laptops/${id}?fields=title&fields=price&fields=description&populate[Image][fields]=url`);
         if (response.ok) {
             const json = await response.json();
             return json.data;
@@ -71,7 +71,7 @@ async function writeOrderData(data, laptopId) {
             "Laptop": laptopId
         }
     };
-    let response = await fetch('http://127.0.0.1:1337/api/orders', {
+    let response = await fetch('https://testbackendforshop-stepanigcom.b4a.run/api/orders', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
